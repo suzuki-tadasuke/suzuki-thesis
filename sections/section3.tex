@@ -112,7 +112,7 @@ SDepT v2.0.0は，フロントエンドとバックエンドから構成され�
 \input{figure/T-comparison.tex}
 本節では，本ツールで実装した前処理手法及びハイブリッド予測手法\cite{Hybrid}について説明する．本節では，\ref{Imputation}項では欠損値の補完手法，\ref{Normalization}項では正規化手法，\ref{Distance}項では類似度計算手法，\ref{Selection}項では類似プロジェクトの選定手法，\ref{Regression}項では回帰手法，\ref{Evaluation}項では評価尺度に用いた手法について紹介する．
 なお，SDepT v2.0.0はSDepT v1.0.0と比べ，欠損値補完手法，正規化手法，回帰手法が拡張されており，変更点を表\ref{table:Comparison}に示す．
-
+% 図じゃなくてtexで表で書いた方が見やすいかも
 
 \subsubsection{欠損値補完手法}\label{Imputation}
 欠損値補完手法には4つの手法を採用している．
@@ -132,7 +132,7 @@ $k$最近傍補完は，欠損値を含むプロジェクトにより近いk個�
 SDepT v2.0.0においては，$k=5$とし，数値データの場合は平均値，カテゴリデータの場合は最頻値で補完される．
 
 \subsubsection{正規化及び標準化手法}\label{Normalization}
-% 基本的に式の後に句読点をつける (OR学会の添削でシャオ先生が式の後に句読点をつけるように添削してたはず)
+% 基本的に式の後にカンマ、句読点をつける (OR学会の添削でシャオ先生が式の後にカンマ、句読点をつけるように添削してたはず)
 正規化手法には4つの手法を採用している．
 \paragraph{Z-score法 \quad \\}
 Z-score法\cite{Huang2017}は，平均$0$，分散$1$にデータを標準化する手法であり，式(\ref{Z-score})のように標準化される．
