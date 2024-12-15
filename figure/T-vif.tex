@@ -1,0 +1,22 @@
+\begin{table}[ht]
+  \centering
+  \captionsetup{labelformat=empty} % 図番号を非表示に設定
+  \caption{\Tdualcaption{``Multicollinearity" Report.}{VIF値.}}
+  \label{table:vif}
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{|l|r|r|r|r|r|r|r|r|r|r|}
+      \hline
+        ~ & TeamExp & ManagerExp & YearEnd & Length & Transactions & Entities & PointsAdjust & Envergure & PointsNonAjust & Language \\ \hline
+        TeamExp & - & 1.1989  & 1.1523  & 1.8308  & 61.5899  & 29.0858  & NA & 5.5447  & 119.9096  & 1.3268  \\ \hline
+        ManagerExp & 1.2048  & - & 1.1748  & 1.7984  & 61.6749  & 29.0814  & NA & 5.5166  & 120.0428  & 1.2641  \\ \hline
+        YearEnd & 1.4484  & 1.4695  & - & 1.8111  & 61.6732  & 29.0859  & NA & 5.6333  & 119.9583  & 1.2534  \\ \hline
+        Length & 1.4756  & 1.4424  & 1.1613  & - & 61.5710  & 29.0076  & NA & 5.6266  & 119.8168  & 1.3347  \\ \hline
+        Transactions & 1.4777  & 1.4705  & 1.1756  & 1.8334  & - & 1.8723  & 102.6158  & 5.6334  & 120.0513  & 1.3467 \\ \hline 
+        Entities & 1.4777  & 1.4705  & 1.1756  & 1.8334  & 3.7913  & - & 97.9960  & 5.6334  & 120.0513  & 1.3467  \\ \hline
+        PointsAdjust & 1.4777  & 1.4705  & 1.1756  & 1.8334  & 61.6751  & 29.0859  & - & 5.6334  & 120.0513  & 1.3467  \\ \hline
+        Envergure & 1.4545  & 1.4400  & 1.1756  & 1.8312  & 20.4460  & 9.4304  & NA & - & 31.3772  & 1.3273  \\ \hline
+        PointsNonAjust & 1.4760  & 1.4704  & 1.1747  & 1.8298  & 1.7437  & 1.4344  & NA & 1.4724  & - & 1.3456  \\ \hline
+        Language & 1.4558  & 1.3802  & 1.0941  & 1.8170  & 61.6670  & 29.0552  & NA & 5.5519  & 119.9453  & - \\ \hline
+    \end{tabular}
+  }
+\end{table}

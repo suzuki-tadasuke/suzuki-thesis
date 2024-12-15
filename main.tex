@@ -1,0 +1,97 @@
+\documentclass[11pt]{jsarticle}
+
+% パッケージ
+\usepackage{styles/xiaolab}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{caption}
+\usepackage{multirow}
+%\usepackage{placeins}
+
+\newcommand{\Fdualcaption}[2]{ % captionを2言語で表示するためのコマンド
+  \centering
+  \textbf{Figure \thefigure:} #1 \par
+  \textbf{図\thefigure:} #2
+}
+\newcommand{\Tdualcaption}[2]{ % captionを2言語で表示するためのコマンド
+  \centering
+  \textbf{Table \thetable:} #1 \par
+  \textbf{表\thetable:} #2
+}
+
+% 本文
+\begin{document}
+
+% 属性をセット
+\author{鈴木 肇介}                   % 氏名
+\title{SDepTの改良}      % 論文タイトル
+\graduationYear{2025}             % 卒業年度
+\studentId{21141128}              % 学修番号
+\thesistype{1}                    % 卒論なら1, 修論なら2
+
+% タイトル
+\maketitle
+\pagestyle{empty}
+
+% 目次
+\clearpage
+\pagestyle{empty}
+\tableofcontents
+
+% 第1章
+\clearpage
+\setcounter{page}{1}
+\pagestyle{plain}
+\input{sections/section1}
+
+% 第2章
+\clearpage
+\pagestyle{plain}
+\input{sections/section2}
+
+% 第3章
+\clearpage
+\pagestyle{plain}
+\input{sections/section3}
+
+% 第4章
+\clearpage
+\pagestyle{plain}
+\input{sections/section4}
+
+% 第5章
+\clearpage
+\pagestyle{plain}
+\input{sections/section5}
+
+% tmp
+% \clearpage
+% \pagestyle{plain}
+% \input{sections/}
+
+% 謝辞
+\clearpage
+\pagestyle{plain}
+\input{sections/acknowledgements.tex}
+
+% 参考文献
+\addcontentsline{toc}{section}{参考文献}
+\clearpage
+\pagestyle{plain}
+\bibliographystyle{jIEEEtran}
+\bibliography{bibliography/references.bib}
+
+% 付録
+\clearpage
+\appendix
+\input{sections/appendixA}
+
+\clearpage
+\input{sections/appendixB}
+
+\clearpage
+\input{sections/appendixC}
+
+\end{document}

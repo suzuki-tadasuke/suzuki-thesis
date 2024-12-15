@@ -1,0 +1,48 @@
+\begin{table*}[ht]
+  \centering
+  \captionsetup{labelformat=empty} % 図番号を非表示に設定
+  \caption{\Tdualcaption{``Similar Projects" report.}{新規プロジェクトの類似プロジェクトデータセット(一部抜粋).}}
+  \label{table:sim}
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+      \hline
+      ~ & V1 & V2 & V3 & V4 & V5 & V6 & \dots & V9 & \dots & V16 & \dots & V20 & \dots & V40 & \dots & V60 & \dots & V80 \\ \hline
+      ED-Clustering($k$=2) & 21 & 23 & 24 & 28 & 30 & 40 & \dots & 44 & \dots & 80 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      ED-Clustering($k$=3) & 21 & 40 & 42 & 44 & 67 & 73 & \dots & 80 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      ED-Clustering($k$=4) & 42 & 44 & 73 & 76 & 79 & 80 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      ED-Clustering($k$=5) & 42 & 44 & 73 & 76 & 79 & 80 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      ED-Fixed\_$k$($k$=3) & 38 & 50 & 68 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      ED-Fixed\_$k$($k$=4) & 38 & 47 & 50 & 68 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      ED-Fixed\_$k$($k$=5) & 37 & 38 & 47 & 50 & 68 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      ED-Fixed\_$k$($k$=6) & 3 & 37 & 38 & 47 & 50 & 68 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      ED-Quantile($k$=1) & 3 & 4 & 5 & 7 & 15 & 16 & \dots & 37 & \dots & 68 & \dots & 78 & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      ED-Quantile($k$=2) & 3 & 4 & 5 & 7 & 8 & 10 & \dots & 16 & \dots & 29 & \dots & 40 & \dots & 78 & ~ & ~ & ~ & ~ \\ \hline
+      ED-Quantile($k$=3) & 3 & 4 & 5 & 7 & 8 & 10 & \dots & 15 & \dots & 22 & \dots & 28 & \dots & 54 & \dots & 79 & ~ & ~ \\ \hline
+      ED-Quantile($k$=4) & 1 & 2 & 3 & 4 & 5 & 6 & \dots & 9 & \dots & 16 & \dots & 20 & \dots & 40 & \dots & 60 & \dots & 80 \\ \hline
+      WED-Clustering($k$=2) & 21 & 23 & 24 & 28 & 30 & 40 & \dots & 44 & \dots & 80 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      WED-Clustering($k$=3) & 21 & 40 & 42 & 44 & 67 & 73 & \dots & 80 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      WED-Clustering($k$=4) & 42 & 44 & 73 & 76 & 79 & 80 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      WED-Clustering($k$=5) & 42 & 44 & 73 & 76 & 79 & 80 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      WED-Fixed\_$k$($k$=3) & 3 & 10 & 13 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      WED-Fixed\_$k$($k$=4) & 3 & 10 & 13 & 64 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      WED-Fixed\_$k$($k$=5) & 3 & 10 & 13 & 20 & 64 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      WED-Fixed\_$k$($k$=6) & 3 & 10 & 13 & 20 & 64 & 68 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      WED-Quantile($k$=1) & 3 & 10 & 13 & 16 & 17 & 20 & \dots & 51 & \dots & 64 & \dots & 71 & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      WED-Quantile($k$=2) & 3 & 5 & 6 & 7 & 8 & 10 & \dots & 13 & \dots & 31 & \dots & 43 & \dots & 75 & ~ & ~ & ~ & ~ \\ \hline
+      WED-Quantile($k$=3) & 1 & 2 & 3 & 4 & 5 & 6 & \dots & 9 & \dots & 16 & \dots & 20 & \dots & 52 & \dots & 78 & ~ & ~ \\ \hline
+      WED-Quantile($k$=4) & 1 & 2 & 3 & 4 & 5 & 6 & \dots & 9 & \dots & 16 & \dots & 20 & \dots & 40 & \dots & 60 & \dots & 80 \\ \hline
+      COS-Clustering($k$=2) & 21 & 23 & 24 & 28 & 30 & 40 & \dots & 44 & \dots & 80 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      COS-Clustering($k$=3) & 21 & 40 & 42 & 44 & 67 & 73 & \dots & 80 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      COS-Clustering($k$=4) & 42 & 44 & 73 & 76 & 79 & 80 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      COS-Clustering($k$=5) & 42 & 44 & 73 & 76 & 79 & 80 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      COS-Fixed\_$k$($k$=3) & 73 & 76 & 79 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      COS-Fixed\_$k$($k$=4) & 42 & 73 & 76 & 79 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      COS-Fixed\_$k$($k$=5) & 21 & 42 & 73 & 76 & 79 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      COS-Fixed\_$k$($k$=6) & 21 & 42 & 73 & 76 & 79 & 80 & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      COS-Quantile($k$=1) & 15 & 21 & 23 & 24 & 28 & 30 & \dots & 40 & \dots & 73 & \dots & 80 & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+      COS-Quantile($k$=2) & 1 & 2 & 4 & 8 & 9 & 11 & \dots & 18 & \dots & 28 & \dots & 37 & \dots & 80 & ~ & ~ & ~ & ~ \\ \hline
+      COS-Quantile($k$=3) & 1 & 2 & 4 & 5 & 6 & 8 & \dots & 11 & \dots & 22 & \dots & 26 & \dots & 47 & \dots & 80 & ~ & ~ \\ \hline
+      COS-Quantile($k$=4) & 1 & 2 & 3 & 4 & 5 & 6 & \dots & 9 & \dots & 16 & \dots & 20 & \dots & 40 & \dots & 60 & \dots & 80 \\ \hline
+    \end{tabular}
+  }
+\end{table*}

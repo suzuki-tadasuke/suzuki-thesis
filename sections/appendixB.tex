@@ -1,0 +1,125 @@
+\section{使用データセット及び実行結果}
+\subsection{使用データセット}
+本節では，本研究で用いたデータセットを紹介する．
+\subsubsection{データセット1}
+Desharnaisデータセット\cite{Desharnais89}(表\ref{table:DesharnaisDataset})は，1980年代のカナダのソフトウェア開発会社のプロジェクトデータが記録されており，81件の過去のプロジェクトデータと11のプロジェクト特性(チームの経験年数(TeamExp in years)，開発年度(YearEnd)，マネージャーの経験年数(ManageExp in years)，開発年数(Length)，トランザクション数(Transactions)，エンティティ数(Entities)，調整済みファンクションポイント(PointsAdjust)，調整係数(Envergure)，未調整ファンクションポイント(PointsNonAdjust)，開発言語(Language)，開発工数(Effort))が含まれている．
+
+\subsubsection{データセット2}
+Kitchenhamデータセット\cite{Kitchenham2002}(表\ref{table:KitchenhamDataset})はKitchenhamらが2002年から公開しているデータセットであり，あるソフトウェア開発企業のプロジェクトデータが記録されている．データセットには145件の過去プロジェクトデータと5つのプロジェクト特性(顧客番号(Clientcode)，開発期間(Actualduration(Days))，調整済みファンクションポイント(Adjustedfunctionpoints)，初期見積もり値(First estimate in Hour)，開発工数(Actualeffort(Hours)))が含まれている．
+
+\begin{table*}[ht]
+  \centering
+  \captionsetup{labelformat=empty} % 図番号を非表示に設定
+  \caption{\Tdualcaption{Kitchenham Dataset of Software Development.}{Kitchenhamデータセット.}}
+  \label{table:KitchenhamDataset}
+  \begin{center}
+    \resizebox{\textwidth}{!}{
+      \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        Project & Clientcode & Actualduration(Days) & Adjustedfunctionpoints & Firstestimate(Hours) & Actualeffort(Hours) \\ \hline \hline
+        1 & 1 & 107 & 101.65 & 495 & 485 \\ \hline
+        2 & 1 & 144 & 57.12 & 1365 & 990\\ \hline
+        3 & 1 & 604 & 1010.88 & 8244 & 13635 \\ \hline
+        \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\ \hline
+        144 & 6 & 1560 & 1002.76 & 1039 & 104 \\ \hline
+        145 & 2 & 92 & 551.88 & 1393 & 887 \\ \hline
+      \end{tabular}
+    }
+  \end{center}
+\end{table*}
+
+\subsubsection{データセット3～6}
+その他4つのデータセットは，PROMISE Software Engineering Repository\cite{PROMISEdataset}に2004年から掲載されているNASAのSoftware defect PredictionのMetrics Data Programである．それぞれのデータセットは，PC1(表\ref{table:PC1Dataset})には1109件，CM1(表\ref{table:CM1Dataset})には498件，KC1(表\ref{table:KC1Dataset})には2109件，KC2(表\ref{table:KC2Dataset})には522件の過去プロジェクトデータが記録されており，21のプロジェクト特性(McCabe's line count of code(loc)，McCabe "cyclomatic complexity"(v(g))，McCabe "essential complexity"(ev(g))，McCabe "design complexity"(iv(g))，Halstead total operators + operands(n)，Halstead "volume"(v)，Halstead "program length"(l)，Halstead "difficulty"(d)，Halstead "intelligence"(i)，Halstead(b)，Halstead's time estimator(t)，Halstead's line count(lOCode)，Halstead's count of lines of comments(lOComment)，Halstead's count of blank lines(lOBlank)，(lOCodeAndComment)，unique operators(uniq\_Op)，unique operands(uniq\_Opnd)，total operators(total\_Op)，total operands(total\_Opnd)，of the flow graph(branchCount)，Halstead "effort"(e))が含まれている．なお，\ref{Preprocess}項のデータの所定書式に従い，モジュールに含まれる報告された欠陥の有無(dfectsまたはproblems)のプロジェクト特性を除いている．
+
+\begin{table*}[ht]
+  \centering
+  \captionsetup{labelformat=empty} % 図番号を非表示に設定
+  \caption{\Tdualcaption{PROMISE Dataset of Software Development(PC1).}{PROMISEデータセット(PC1).}}
+  \label{table:PC1Dataset}
+  \begin{center}
+    \resizebox{\textwidth}{!}{
+      \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        Project & loc & v(g) & ev(g) & iv(g) & n & v & l & d & i & \dots & branchCount & e \\ \hline \hline
+        1 & 1.1 & 1.4 & 1.4 & 1.4 & 1.3 & 1.3 & 1.3 & 1.3 & 1.3 & \dots & 1.4 & 1.3 \\ \hline
+        2 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & \dots & 1 & 1 \\ \hline
+        3 & 91 & 9 & 3 & 2 & 318 & 2089.21 & 0.04 & 27.68 & 75.47 & \dots & 17 & 57833.24 \\ \hline
+        \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & $\ddots$ & \vdots & \vdots \\ \hline
+        1108 & 18 & 8 & 5 & 5 & 111 & 613.12 & 0.04 & 22.92 & 26.75 & \dots & 15 & 14050.56 \\ \hline
+        1109 & 26 & 18 & 13 & 6 & 228 & 1335.62 & 0.03 & 35.81 & 37.29 & \dots & 35 & 47834.26 \\ \hline
+      \end{tabular}
+    }
+  \end{center}
+\end{table*}
+
+\begin{table*}[ht]
+  \centering
+  \captionsetup{labelformat=empty} % 図番号を非表示に設定
+  \caption{\Tdualcaption{PROMISE Dataset of Software Development(CM1).}{PROMISEデータセット(CM1).}}
+  \label{table:CM1Dataset}
+  \begin{center}
+    \resizebox{\textwidth}{!}{
+      \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        Project & loc & v(g) & ev(g) & iv(g) & n & v & l & d & i & \dots & branchCount & e \\ \hline \hline
+        1 & 1.1 & 1.4 & 1.4 & 1.4 & 1.3 & 1.3 & 1.3 & 1.3 & 1.3 & \dots & 1.4 & 1.3 \\ \hline
+        2 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & \dots & 1 & 1 \\ \hline
+        3 & 24 & 5 & 1 & 3 & 63 & 309.13 & 0.11 & 9.5 & 32.54 & \dots & 9 & 2936.77 \\ \hline
+        \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & $\ddots$ & \vdots & \vdots \\ \hline
+        497 & 10 & 2 & 1 & 1 & 32 & 150.41 & 0.15 & 6.5 & 23.14 & \dots & 3 & 977.69 \\ \hline
+        498 & 28 & 6 & 5 & 5 & 104 & 564.33 & 0.06 & 16.09 & 35.08 & \dots & 11 & 9078.38 \\ \hline
+      \end{tabular}
+    }
+  \end{center}
+\end{table*}
+
+\begin{table*}[ht]
+  \centering
+  \captionsetup{labelformat=empty} % 図番号を非表示に設定
+  \caption{\Tdualcaption{PROMISE Dataset of Software Development(KC1).}{PROMISEデータセット(KC1).}}
+  \label{table:KC1Dataset}
+  \begin{center}
+    \resizebox{\textwidth}{!}{
+      \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        Project & loc & v(g) & ev(g) & iv(g) & n & v & l & d & i & \dots & branchCount & e \\ \hline \hline
+        1 & 1.1 & 1.4 & 1.4 & 1.4 & 1.3 & 1.3 & 1.3 & 1.3 & 1.3 & \dots & 1.4 & 1.3 \\ \hline
+        2 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & \dots & 1 & 1 \\ \hline
+        3 & 83 & 11 & 1 & 11 & 171 & 927.89 & 0.04 & 23.04 & 40.27 & \dots & 21 & 21378.61 \\ \hline
+        \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & $\ddots$ & \vdots & \vdots \\ \hline
+        2108 & 13 & 1 & 1 & 1 & 17 & 60.94 & 0.25 & 4 & 15.24 & \dots & 1 & 243.78 \\ \hline
+        2109 & 11 & 2 & 1 & 2 & 27 & 102.8 & 0.17 & 6 & 17.13 & \dots & 3 & 616.79 \\ \hline
+      \end{tabular}
+    }
+  \end{center}
+\end{table*}
+
+\begin{table*}[ht]
+  \centering
+  \captionsetup{labelformat=empty} % 図番号を非表示に設定
+  \caption{\Tdualcaption{PROMISE Dataset of Software Development(KC2).}{PROMISEデータセット(KC2).}}
+  \label{table:KC2Dataset}
+  \begin{center}
+    \resizebox{\textwidth}{!}{
+      \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        Project & loc & v(g) & ev(g) & iv(g) & n & v & l & d & i & \dots & branchCount & e \\ \hline \hline
+        1 & 1.1 & 1.4 & 1.4 & 1.4 & 1.3 & 1.3 & 1.3 & 1.3 & 1.3 & \dots & 1.4 & 1.3 \\ \hline
+        2 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & \dots & 1 & 1 \\ \hline
+        3 & 415 & 59 & 50 & 51 & 1159 & 8411.31 & 0.01 & 103.53 & 81.24 & \dots & 106 & 870848.58 \\ \hline
+        \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & $\ddots$ & \vdots & \vdots \\ \hline
+        521 & 4 & 1 & 1 & 1 & 5 & 11.61 & 0.67 & 1.5 & 7.74 & \dots & 1 & 17.41 \\ \hline
+        522 & 3 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & \dots & 1 & 0 \\ \hline
+      \end{tabular}
+    }
+  \end{center}
+\end{table*}
+
+\subsection{実行結果}
+\subsubsection{データセット1}
+
+\subsubsection{データセット2}
+
+\subsubsection{データセット3}
+
+\subsubsection{データセット4}

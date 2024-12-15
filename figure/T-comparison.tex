@@ -1,0 +1,29 @@
+\begin{table}[h]
+  \centering
+  \captionsetup{labelformat=empty} % 図番号を非表示に設定
+  \caption{\Tdualcaption{Comparison of SDepT v1.0.0 and SDepT v2.0.0.}{SDepT v1.0.0とSDepT v2.0.0の比較.}}
+  \label{table:Comparison}
+    \begin{tabular}{|l|c|c|}
+      \hline
+      ~ & SDepT v1.0.0 & SDepT v2.0.0 \\ \hline
+      %%%%%%%%正規化手法%%%%%%%%
+      \multirow{4}{*}{欠損値補完手法} & 中央値補完 & 中央値補完 \\
+       & & 平均値補完 \\
+       & & 最頻値補完 \\
+       & & $k$最近傍補完 \\ \hline
+      %%%%%%%%欠損値補完手法%%%%%%%%
+      \multirow{4}{*}{正規化手法} & z-score法 & z-score法 \\
+       & & MinMax[0, 1] \\
+       & & MinMax[-1, 1] \\
+       & & BoxCox法 \\ \hline
+      %%%%%%%%特徴選択手法%%%%%%%%
+      \multirow{8}{*}{回帰手法} & OLS & OLS \\
+       & Ridge & Ridge \\
+       & Lasso & Lasso \\
+       & Elastic Net & Elastic Net \\
+       & SCAD & SCAD \\
+       & MCP & MCP \\
+       & & Adaptive Lasso \\
+       & & Non-Negative Garrote \\ \hline
+    \end{tabular}
+\end{table}

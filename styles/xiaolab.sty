@@ -1,0 +1,114 @@
+%%% レイアウトの定義 %%%
+%% 上部 %%
+\setlength{\topmargin}{-1truein}
+\addtolength{\topmargin}{10truemm}
+\setlength{\headheight}{5truemm}
+\setlength{\headsep}{10truemm}
+%% 下部 %%
+\setlength{\textheight}{\paperheight}
+\addtolength{\textheight}{-50truemm}
+\setlength{\footskip}{10truemm}
+
+%% 左部 %%
+\setlength{\oddsidemargin}{-1truein}
+\addtolength{\oddsidemargin}{25truemm}
+\setlength{\textwidth}{\paperwidth}
+\addtolength{\textwidth}{-50truemm}
+\setlength{\evensidemargin}{\oddsidemargin}
+
+%%% 章番号の表記 %%%
+\renewcommand{\thesection}{第 \arabic{section} 章}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+
+%%% セクション（章・項・節）のフォント %%%
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{\z@}%
+  {1.5\Cvs \@plus.5\Cvs \@minus.2\Cvs}%
+  {.5\Cvs \@plus.3\Cvs}%
+  {\normalfont\LARGE\bfseries}} %\Large -> \LARGE
+\renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
+  {1.5\Cvs \@plus.5\Cvs \@minus.2\Cvs}%
+  {.5\Cvs \@plus.3\Cvs}%
+  {\normalfont\Large\bfseries}} %\large -> \Large
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
+  {1.5\Cvs \@plus.5\Cvs \@minus.2\Cvs}%
+  {.5\Cvs \@plus.3\Cvs}%
+  {\normalfont\large\bfseries}} %\normalsize -> \large
+\makeatother
+
+%%% 式番号に章番号も含めるように設定 %%%
+\makeatletter
+\def\theequation{\arabic{section}.\arabic{equation}}
+\@addtoreset{equation}{section}
+\makeatother
+
+%%% タイトル（表紙） %%%
+\usepackage{xcolor}
+
+% 指定されていない属性などを強調するためのコマンド
+\newcommand{\emphasize}[1]{\textbf{\textcolor{red}{#1}}}
+
+\makeatletter
+\newcommand{\graduationYear}{\gdef\@graduationYear}
+\newcommand{\studentId}{\gdef\@studentId}
+\newcommand{\thesistype}{\gdef\@thesistype}
+
+\title{\emphasize{[タイトルを指定してください]}}
+\author{\emphasize{[著者を指定してください]}}
+\graduationYear{\emphasize{[卒業年度を指定してください]}}
+\studentId{\emphasize{[学修番号を指定してください]}}
+\thesistype{0}
+
+\newcommand{\thesistypetext}{
+  \ifcase\@thesistype
+    \emphasize{[論文タイプを指定してください]}  % 0 の場合
+  \or
+    卒業論文                    % 1 の場合
+  \or
+    修士論文                    % 2 の場合
+  \else
+    \emphasize{[論文タイプが無効です]}        % それ以外の値の場合
+  \fi
+}
+
+\renewcommand{\maketitle}{
+  \begingroup
+    \begin{center}
+      \noindent \rule{145mm}{2mm} \\
+    \end{center}
+
+    \Large \@graduationYear 年度 \thesistypetext \\
+
+    \vspace{-7mm}
+
+    \begin{center}
+      \LARGE \textbf{\@title}
+    \end{center}
+
+    \begin{center}
+      \rule{145mm}{2mm}
+    \end{center}
+
+    \vspace{-5mm}
+
+    \begin{flushright}
+      \Large 指導教員　肖 霄
+    \end{flushright}
+
+    \vspace{10mm}
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=140mm]{figure/tmu_logo.jpg}
+    \end{figure}
+
+    \vspace{10mm}
+
+    \begin{center}
+      \Large 東京都立大学 システムデザイン学部 電子情報システム工学科 \\
+      \Large 学修番号：\@studentId \\
+      \Large \@author \\
+    \end{center}
+  \endgroup
+}
+\makeatother

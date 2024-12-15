@@ -1,0 +1,103 @@
+\begin{table}[t]
+  \centering
+  \begin{minipage}[t]{0.45\textwidth}
+    \centering
+    \captionsetup{labelformat=empty} % 図番号を非表示に設定
+    \caption{\Tdualcaption{Top 10 accuracy methods based on MMRE.}{昇順ソート後のMMRE.}}
+    \resizebox{\textwidth}{!}{
+      \begin{tabular}{|l|l|}
+        \hline
+        ~ & MMRE \\ \hline
+        WED-Quantile($k$=2)-SCAD & 0.000003  \\ \hline
+        ED-Quantile($k$=1)-ElasticNet & 0.000032  \\ \hline
+        WED-Quantile($k$=2)-MCP & 0.000044  \\ \hline
+        ED-Quantile($k$=2)-Lasso & 0.000215  \\ \hline
+        ED-Quantile($k$=1)-Lasso & 0.000258  \\ \hline
+        COS-Quantile($k$=3)-ElasticNet & 0.000272  \\ \hline
+        ED-Quantile($k$=1)-Ridge & 0.000322  \\ \hline
+        COS-Quantile($k$=1)-OLS & 0.000503  \\ \hline
+        ED-Quantile($k$=2)-ElasticNet & 0.000503  \\ \hline
+        ED-Quantile($k$=2)-AdaptiveLasso & 0.000504  \\ \hline
+      \end{tabular}\vspace{5mm}
+    }
+    \label{table:mmre}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.45\textwidth}
+    \centering
+    \captionsetup{labelformat=empty} % 図番号を非表示に設定
+    \caption{\Tdualcaption{Top 10 accuracy methods based on MdMRE.}{昇順ソート後のMdMRE.}}
+    \resizebox{\textwidth}{!}{
+      \begin{tabular}{|l|l|}
+        \hline
+        ~ & MdMRE \\ \hline
+        COS-Quantile($k$=2)-Ridge & 0.3129 \\ \hline 
+        ED-Quantile($k$=4)-ElasticNet & 0.3159  \\ \hline
+        WED-Quantile($k$=4)-ElasticNet & 0.3159  \\ \hline
+        COS-Quantile($k$=4)-ElasticNet & 0.3159  \\ \hline
+        ED-Quantile($k$=4)-Lasso & 0.3171  \\ \hline
+        WED-Quantile($k$=4)-Lasso & 0.3171  \\ \hline
+        COS-Quantile($k$=4)-Lasso & 0.3171  \\ \hline
+        ED-Quantile($k$=2)-AdaptiveLasso & 0.3183  \\ \hline
+        ED-Quantile($k$=4)-OLS & 0.3201  \\ \hline
+        WED-Quantile($k$=4)-OLS & 0.3201  \\ \hline
+        COS-Quantile($k$=4)-OLS & 0.3201  \\ \hline
+      \end{tabular}
+    }
+    \label{table:mdmre}
+  \end{minipage}
+\end{table}
+
+\begin{table}[t]
+  \centering
+  \begin{minipage}[t]{0.45\textwidth}
+    \centering
+    \captionsetup{labelformat=empty} % 図番号を非表示に設定
+    \caption{\Tdualcaption{Top 10 accuracy methods based on Pred($p$).}{昇順ソート後のPred($p$).}}
+    \resizebox{\textwidth}{!}{
+      \begin{tabular}{|l|l|}
+        \hline
+        ~ & Pred(25) \\ \hline
+        ED-Clustering($k$=2)-NonNegativeGarrote & 42.50  \\ \hline
+        WED-Clustering($k$=2)-NonNegativeGarrote & 42.50  \\ \hline
+        COS-Clustering($k$=2)-NonNegativeGarrote & 42.50  \\ \hline
+        COS-Quantile($k$=3)-MCP & 41.25  \\ \hline
+        COS-Quantile($k$=3)-SCAD & 41.25  \\ \hline
+        COS-Quantile($k$=3)-NonNegativeGarrote & 40.00 \\ \hline 
+        COS-Fixed\_$k$($k$=3)-AdaptiveLasso & 40.00  \\ \hline
+        COS-Quantile($k$=2)-Ridge & 38.75  \\ \hline
+        ED-Quantile($k$=2)-AdaptiveLasso & 38.75  \\ \hline
+        COS-Fixed\_$k$($k$=6)-NonNegativeGarrote & 38.75  \\ \hline
+        COS-Fixed\_$k$($k$=4)-SCAD & 38.75  \\ \hline
+        COS-Fixed\_$k$($k$=3)-Lasso & 38.75 \\ \hline
+      \end{tabular}
+    }
+    \label{table:pred}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.45\textwidth}
+    \centering
+    \captionsetup{labelformat=empty} % 図番号を非表示に設定
+    \caption{\Tdualcaption{Top 10 accuracy methods based on SA.}{昇順ソート後のSA.}}
+    
+    \centering
+    \caption{Top 10 accuracy methods based on SA.}
+    \resizebox{\textwidth}{!}{
+      \begin{tabular}{|l|l|}
+        \hline
+        ~ & SA \\ \hline
+        COS-Fixed\_$k$($k$=6)-NonNegativeGarrote & 54.09  \\ \hline
+        COS-Quantile($k$=3)-SCAD & 53.41  \\ \hline
+        COS-Quantile($k$=3)-ElasticNet & 53.26  \\ \hline
+        COS-Quantile($k$=3)-MCP & 53.22  \\ \hline
+        COS-Fixed\_$k$($k$=6)-Lasso & 53.06  \\ \hline
+        COS-Quantile($k$=3)-NonNegativeGarrote & 52.96 \\ \hline 
+        COS-Quantile($k$=3)-Lasso & 52.70  \\ \hline
+        COS-Fixed\_$k$($k$=6)-ElasticNet & 51.90  \\ \hline
+        COS-Quantile($k$=3)-OLS & 51.27  \\ \hline
+        COS-Quantile($k$=3)-Ridge & 51.19 \\ \hline
+      \end{tabular}
+    }
+    \label{table:sa}
+  \end{minipage}
+\end{table}

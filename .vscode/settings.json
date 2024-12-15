@@ -1,0 +1,22 @@
+{
+  // 引用キーによるソートを有効にする
+  "latex-workshop.bibtex-format.sort.enabled": true,
+  // フィールドのソートを有効にする．
+  "latex-workshop.bibtex-fields.sort.enabled": true,
+  // フィールドのソート順を指定する．
+  "latex-workshop.bibtex-fields.order": [
+    "author",
+    "editor",
+    "title",
+    "booktitle",
+    "journal",
+    "publisher",
+    "address",
+    "edition",
+    "volume",
+    "number",
+    "pages",
+    "year",
+    "doi"
+  ]
+}

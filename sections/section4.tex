@@ -1,0 +1,66 @@
+\section{システム使用例}\label{sec:4}%%%システム使用例じゃなくてテストという単語を入れてもいいかも
+%\ref{sec:4}では実際にシステムを動かした際の詳細を書く\par
+本章では、Desharnaisデータセット\cite{Desharnais89}(表\ref{table:DesharnaisDataset})を用いたSDepT v2.0.0のシステム使用例を示す．
+Desharnaisデータセットは1980年代のカナダのソフトウェア開発会社のプロジェクトデータが記録されており，81件の過去のプロジェクトデータと11のプロジェクト特性(チームの経験年数(TeamExp in years)，開発年度(YearEnd)，マネージャーの経験年数(ManageExp in years)，開発年数(Length)，トランザクション数(Transactions)，エンティティ数(Entities)，調整済みファンクションポイント(PointsAdjust)，調整係数(Envergure)，未調整ファンクションポイント(PointsNonAdjust)，開発言語(Language)，開発工数(Effort))が含まれている．
+\input{figure/T-DesharnaisDataset.tex}
+
+% \begin{table}[h]
+%   \centering
+%   \caption{Desharnaisデータの特性一覧}
+%   \label{table:Desh}
+%   \begin{tabular}{|c|c|} \hline
+%     チームの経験年数(TeamExp in years) & 開発年度(YearEnd) \\ \hline
+%     マネージャーの経験年数(ManageExp in years) & 開発年数(Length) \\ \hline
+%     トランザクション数(Transactions) & エンティティ数(Entities) \\ \hline
+%     調整済みファンクションポイント(PointsAdjust) & 調整係数(Envergure) \\ \hline
+%     未調整ファンクションポイント(PointsNonAdjust) & 開発言語(Language) \\ \hline
+%     開発工数(Effort) & ~ \\ \hline
+%   \end{tabular}
+% \end{table}
+
+\subsection{ユーザーインターフェース}
+ユーザーは以下の手順で操作を行う．
+\begin{enumerate}
+  \item 「Upload」ボタンを押し，ユーザーデータセットをアップロードする．
+  このとき，アップロードしたデータセットのファイル名が「Upload」ボタンの横に表示されていれば，正常にアップロードされている．
+  また，データセットがアップロードされていない場合はサンプルデータセットとして「sampleData.csv」が使用される．
+  \item \begin{itemize}
+    \item Basic画面では，予測精度を優先するか，計算速度を優先するかを選択できる．
+    \item Advance画面では，各工程における採用手法を選択することができる．類似プロジェクト選定手法については，クラスタリングにおけるクラスタ数$k$，Fixed-kにおける選択プロジェクト数$k$，四分位数法における選択集合数$k$をそれぞれ任意に設定することができ，設定しなかった場合はデフォルトの数値で予測が行われる．
+    \end{itemize}
+  \item 「Predict」ボタンを押すことで予測が始まる．
+  \item 計算が終了し画面が切り替わると，「Download」ボタンを押して予測結果をcsv形式でダウンロードすることができる．
+
+\end{enumerate}
+
+\subsection{予測結果レポート}
+開発工数の予測が完了すると，予測結果として新規プロジェクトの工数予測値，各手法の予測精度，新規プロジェクトに対する類似プロジェクト，VIF値がそれぞれcsvファイルとして返される．
+実際には，前処理の組み合わせごとに最大16組(欠損値補完4手法$\times$正規化4手法)のレポートが返されるが，ここでは例として，中央値による欠損値補完及びZ-score正規化を施したデータの出力レポートを表\ref{table:est}～表\ref{table:vif}に示す．
+
+\input{figure/T-est.tex}
+\input{figure/T-eval.tex}
+\input{figure/T-sim.tex}
+\input{figure/T-vif.tex}
+
+表\ref{table:est}は新規プロジェクトの各手法における工数予測値のレポートであり，これらの予測値の中には精度が低い手法によって算出されたものも含まれる．
+表\ref{table:eval}は各手法の予測精度のレポートであり，表\ref{table:eval}を参照することでユーザーがより正確に開発工数の予測を行うことができる．
+表\ref{table:sim}は新規プロジェクトに対する類似プロジェクトのレポートであり，各手法においてどの類似プロジェクトが使用されているかを参照できる．
+表\ref{table:vif}はVIF値のレポートであり，多重共線性の有無を確認できる．
+表\ref{table:vif}では，特定の変数を仮の目的変数とし，その他の説明変数とのVIF値を算出しているため，対角線の要素は「-」となっている．
+また，他の説明変数のエイリアス(他の説明変数の線形結合で表せる状態)となっている変数においてはVIF値を算出できないため，「NA」としている．
+
+\clearpage
+\subsection{考察}
+\input{figure/T-sort.tex}
+表\ref{table:vif}より，TransactionsとEntities, PointsAdjustのVIF値の絶対値が高く，多重共線性が存在することが分かる．
+また，PointsAdjustにおいてはTransactionsとEntitiesを仮の目的変数としたとき以外は「NA」となっているため，TransactionsとEntitiesのエイリアスであることが分かる．
+したがって，これらのうちいくつかのプロジェクト特性を削除したデータセットで再び予測を行うことで，精度がより高くなると考えられる．
+
+表\ref{table:eval}において，各手法の予測精度を評価手法ごとに評価の高い順にソートし，上位10個を抜粋したものが表\ref{table:mmre}～表\ref{table:sa}である．
+これらの結果を元に，表\ref{table:est}に色を付けたものが図\ref{fig:estColor}である．
+それぞれの評価尺度において上位10個に含まれた手法対し，1回であれば青，2回であれば緑，3回であれば黄色，4回であれば赤色というように色を付けた．
+塗りつぶされた値の内，最小値は-2820，最大値は19878，平均値は14368であった．
+また，類似度計算手法の中ではコサイン類似度が，類似プロジェクト選定手法の中では四分位数法(Quantile)が比較的上位に含まれていることが分かる．
+ユーザーはこれらを参考に，実際の開発工数の予測を行うことができる．
+
+\input{figure/F-estColor.tex}
