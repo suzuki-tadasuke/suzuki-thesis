@@ -1,7 +1,8 @@
 \section{システム使用例}\label{sec:4}%%%システム使用例じゃなくてテストという単語を入れてもいいかも
 %\ref{sec:4}では実際にシステムを動かした際の詳細を書く\par
-本章では、Desharnaisデータセット\cite{Desharnais89}(表\ref{table:DesharnaisDataset})を用いたSDepT v2.0.0のシステム使用例を示す．
-Desharnaisデータセットは1980年代のカナダのソフトウェア開発会社のプロジェクトデータが記録されており，81件の過去のプロジェクトデータと11のプロジェクト特性(チームの経験年数(TeamExp in years)，開発年度(YearEnd)，マネージャーの経験年数(ManageExp in years)，開発年数(Length)，トランザクション数(Transactions)，エンティティ数(Entities)，調整済みファンクションポイント(PointsAdjust)，調整係数(Envergure)，未調整ファンクションポイント(PointsNonAdjust)，開発言語(Language)，開発工数(Effort))が含まれている．
+% プロジェクト特性は箇条書きの方がいいかも
+本章では、Desharnaisデータセット\cite{Desharnais89}を用いたSDepT v2.0.0のシステム使用例を示す．
+Desharnaisデータセットは1980年代のカナダのソフトウェア開発会社のプロジェクトデータが記録されており，81件の過去のプロジェクトデータと11のプロジェクト特性(チームの経験年数(TeamExp in years)，開発年度(YearEnd)，マネージャーの経験年数(ManageExp in years)，開発年数(Length)，トランザクション数(Transactions)，エンティティ数(Entities)，調整済みファンクションポイント(PointsAdjust)，調整係数(Envergure)，未調整ファンクションポイント(PointsNonAdjust)，開発言語(Language)，開発工数(Effort))が含まれている．表\ref{table:DesharnaisDataset}にDesharnais データセットの一部を示す。
 \input{figure/T-DesharnaisDataset.tex}
 
 % \begin{table}[h]
@@ -25,11 +26,15 @@ Desharnaisデータセットは1980年代のカナダのソフトウェア開発
   このとき，アップロードしたデータセットのファイル名が「Upload」ボタンの横に表示されていれば，正常にアップロードされている．
   また，データセットがアップロードされていない場合はサンプルデータセットとして「sampleData.csv」が使用される．
   \item \begin{itemize}
+    % ここだけ箇条書きなの気持ち悪いかも
+    % basic画面の場合 ~、advance画面の場合 ~ という風に書いた方がいいかも
     \item Basic画面では，予測精度を優先するか，計算速度を優先するかを選択できる．
     \item Advance画面では，各工程における採用手法を選択することができる．類似プロジェクト選定手法については，クラスタリングにおけるクラスタ数$k$，Fixed-kにおける選択プロジェクト数$k$，四分位数法における選択集合数$k$をそれぞれ任意に設定することができ，設定しなかった場合はデフォルトの数値で予測が行われる．
     \end{itemize}
   \item 「Predict」ボタンを押すことで予測が始まる．
   \item 計算が終了し画面が切り替わると，「Download」ボタンを押して予測結果をcsv形式でダウンロードすることができる．
+
+% ここでbasicとadvanceをもう一度乗せてもいいかも
 
 \end{enumerate}
 
@@ -52,10 +57,13 @@ Desharnaisデータセットは1980年代のカナダのソフトウェア開発
 \clearpage
 \subsection{考察}
 \input{figure/T-sort.tex}
+% 表6 ~ 10の位置が考察の下(図4と同じ位置)にしたほうがいい
 表\ref{table:vif}より，TransactionsとEntities, PointsAdjustのVIF値の絶対値が高く，多重共線性が存在することが分かる．
 また，PointsAdjustにおいてはTransactionsとEntitiesを仮の目的変数としたとき以外は「NA」となっているため，TransactionsとEntitiesのエイリアスであることが分かる．
 したがって，これらのうちいくつかのプロジェクト特性を削除したデータセットで再び予測を行うことで，精度がより高くなると考えられる．
 
+% これ以降は考察というよりも結果のまとめだと思う。
+% 考察ってセクション設けないで4.2とまとめてもいいかも
 表\ref{table:eval}において，各手法の予測精度を評価手法ごとに評価の高い順にソートし，上位10個を抜粋したものが表\ref{table:mmre}～表\ref{table:sa}である．
 これらの結果を元に，表\ref{table:est}に色を付けたものが図\ref{fig:estColor}である．
 それぞれの評価尺度において上位10個に含まれた手法対し，1回であれば青，2回であれば緑，3回であれば黄色，4回であれば赤色というように色を付けた．
@@ -63,4 +71,6 @@ Desharnaisデータセットは1980年代のカナダのソフトウェア開発
 また，類似度計算手法の中ではコサイン類似度が，類似プロジェクト選定手法の中では四分位数法(Quantile)が比較的上位に含まれていることが分かる．
 ユーザーはこれらを参考に，実際の開発工数の予測を行うことができる．
 
+% これは図じゃなくて表じゃない？
+% これだけ解像度が低くてみにくい
 \input{figure/F-estColor.tex}
